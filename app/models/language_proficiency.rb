@@ -1,0 +1,2 @@
+class LanguageProficiency < ApplicationRecord
+end

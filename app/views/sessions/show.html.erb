@@ -1,0 +1,178 @@
+<div>
+  <div>
+    <h1>
+      Session #<%= @the_session.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/sessions">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_session/<%= @the_session.id %>">
+          Delete session
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Partner
+      </dt>
+      <dd>
+        <%= @the_session.partner_id %>
+      </dd>
+
+      <dt>
+        Start datetime
+      </dt>
+      <dd>
+        <%= @the_session.start_datetime %>
+      </dd>
+
+      <dt>
+        End datetime
+      </dt>
+      <dd>
+        <%= @the_session.end_datetime %>
+      </dd>
+
+      <dt>
+        Notes
+      </dt>
+      <dd>
+        <%= @the_session.notes %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_session.user_id %>
+      </dd>
+
+      <dt>
+        Language
+      </dt>
+      <dd>
+        <%= @the_session.language_id %>
+      </dd>
+
+      <dt>
+        Status
+      </dt>
+      <dd>
+        <%= @the_session.status %>
+      </dd>
+
+      <dt>
+        Location
+      </dt>
+      <dd>
+        <%= @the_session.location %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_session.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_session.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit session
+    </h2>
+
+    <form action="/modify_session/<%= @the_session.id %>"  method="post" >
+      <div>
+        <label for="partner_id_box">
+          Partner
+        </label>
+
+        <input type="text" id="partner_id_box" name="query_partner_id" value="<%= @the_session.partner_id %>">
+      </div>
+
+      <div>
+        <label for="start_datetime_box">
+          Start datetime
+        </label>
+
+        <input type="datetime-local" id="start_datetime_box" name="query_start_datetime"
+         value="<%= @the_session.start_datetime %>">
+      </div>
+
+      <div>
+        <label for="end_datetime_box">
+          End datetime
+        </label>
+
+        <input type="datetime-local" id="end_datetime_box" name="query_end_datetime"
+         value="<%= @the_session.end_datetime %>">
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <textarea id="notes_box" name="query_notes"><%= @the_session.notes %></textarea>
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_session.user_id %>">
+      </div>
+
+      <div>
+        <label for="language_id_box">
+          Language
+        </label>
+
+        <input type="text" id="language_id_box" name="query_language_id" value="<%= @the_session.language_id %>">
+      </div>
+
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status" value="<%= @the_session.status %>">
+      </div>
+
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location" value="<%= @the_session.location %>">
+      </div>
+
+      <button>
+        Update session
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

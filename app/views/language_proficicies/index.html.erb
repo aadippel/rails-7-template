@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all language proficicies
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new language proficicy
+    </h2>
+
+    <form action="/insert_language_proficicy" method="post">
+      <div>
+        <label for="language_id_box">
+          Language
+        </label>
+
+        <input type="text" id="language_id_box" name="query_language_id">
+      </div>
+
+      <div>
+        <label for="proficiency_level_box">
+          Proficiency level
+        </label>
+
+        <input type="text" id="proficiency_level_box" name="query_proficiency_level">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <button>
+        Create language proficicy
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Language
+        </th>
+
+        <th>
+          Proficiency level
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_language_proficicies.each do |a_language_proficicy| %>
+      <tr>
+        <td>
+          <%= a_language_proficicy.id %>
+        </td>
+
+        <td>
+          <%= a_language_proficicy.language_id %>
+        </td>
+
+        <td>
+          <%= a_language_proficicy.proficiency_level %>
+        </td>
+
+        <td>
+          <%= a_language_proficicy.user_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_language_proficicy.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_language_proficicy.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/language_proficicies/<%= a_language_proficicy.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

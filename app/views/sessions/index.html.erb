@@ -1,0 +1,198 @@
+<div>
+  <div>
+    <h1>
+      List of all sessions
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new session
+    </h2>
+
+    <form action="/insert_session" method="post">
+      <div>
+        <label for="partner_id_box">
+          Partner
+        </label>
+
+        <input type="text" id="partner_id_box" name="query_partner_id">
+      </div>
+
+      <div>
+        <label for="start_datetime_box">
+          Start datetime
+        </label>
+
+        <input type="datetime-local" id="start_datetime_box" name="query_start_datetime">
+      </div>
+
+      <div>
+        <label for="end_datetime_box">
+          End datetime
+        </label>
+
+        <input type="datetime-local" id="end_datetime_box" name="query_end_datetime">
+      </div>
+
+      <div>
+        <label for="notes_box">
+          Notes
+        </label>
+
+        <textarea id="notes_box" name="query_notes" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="language_id_box">
+          Language
+        </label>
+
+        <input type="text" id="language_id_box" name="query_language_id">
+      </div>
+
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status">
+      </div>
+
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location">
+      </div>
+
+      <button>
+        Create session
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Partner
+        </th>
+
+        <th>
+          Start datetime
+        </th>
+
+        <th>
+          End datetime
+        </th>
+
+        <th>
+          Notes
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Language
+        </th>
+
+        <th>
+          Status
+        </th>
+
+        <th>
+          Location
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_sessions.each do |a_session| %>
+      <tr>
+        <td>
+          <%= a_session.id %>
+        </td>
+
+        <td>
+          <%= a_session.partner_id %>
+        </td>
+
+        <td>
+          <%= a_session.start_datetime %>
+        </td>
+
+        <td>
+          <%= a_session.end_datetime %>
+        </td>
+
+        <td>
+          <%= a_session.notes %>
+        </td>
+
+        <td>
+          <%= a_session.user_id %>
+        </td>
+
+        <td>
+          <%= a_session.language_id %>
+        </td>
+
+        <td>
+          <%= a_session.status %>
+        </td>
+
+        <td>
+          <%= a_session.location %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_session.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_session.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/sessions/<%= a_session.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

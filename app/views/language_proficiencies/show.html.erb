@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Language proficiency #<%= @the_language_proficiency.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/language_proficiencies">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_language_proficiency/<%= @the_language_proficiency.id %>">
+          Delete language proficiency
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Language
+      </dt>
+      <dd>
+        <%= @the_language_proficiency.language_id %>
+      </dd>
+
+      <dt>
+        Proficiency level
+      </dt>
+      <dd>
+        <%= @the_language_proficiency.proficiency_level %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_language_proficiency.user_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_language_proficiency.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_language_proficiency.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit language proficiency
+    </h2>
+
+    <form action="/modify_language_proficiency/<%= @the_language_proficiency.id %>"  method="post" >
+      <div>
+        <label for="language_id_box">
+          Language
+        </label>
+
+        <input type="text" id="language_id_box" name="query_language_id" value="<%= @the_language_proficiency.language_id %>">
+      </div>
+
+      <div>
+        <label for="proficiency_level_box">
+          Proficiency level
+        </label>
+
+        <input type="text" id="proficiency_level_box" name="query_proficiency_level" value="<%= @the_language_proficiency.proficiency_level %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_language_proficiency.user_id %>">
+      </div>
+
+      <button>
+        Update language proficiency
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
